@@ -1,0 +1,276 @@
+/* overall styling*/
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+  }
+
+  h1, h2 {
+    font-size: 1.6em;
+    text-align: center;
+}
+
+  /* mobile first for smaller screens */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 1.6em;
+  }
+
+  body h2{
+    font-size: 1.1em;
+  }
+  .result-row td{
+    font-size: 0.9em;
+  }
+
+  /* make the navigation at the top aligned vertically*/
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* table */
+  #athlete-sr-table table,
+  #athlete-result-table table {
+    font-size: 0.9em;
+    display: flex;
+  }
+
+  a[href="#main"] {
+    font-size: 0.9em;
+}
+}
+
+
+  h1 {
+    color: #2c3e50;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    position: sticky;  /* make athlete page athlete name sticky for viewing seasonal records*/
+    top: 5px;
+    background-color: #ffffff;
+    z-index: 3;
+    padding: 5px;
+    color: #2c3e50;
+    font-size: 2.5em;
+    margin: 0;
+    margin-top: 10px;
+  }
+ 
+
+h2 {
+    color: #2c3e50;
+    font-size: 1.5em;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+
+  nav ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+    background-color: #004ea3;
+    padding: 10px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  nav ul li {
+    display: inline;
+    margin-right: 15px;
+  }
+
+  nav ul li a {
+    text-decoration: none;
+    color: #f0f0f0;
+    font-weight: bold;
+  }
+
+  nav ul li a:hover {
+    text-decoration: underline;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  img {
+    border: 3px dotted #007bff;
+    padding: 5px;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    margin-right: 20px;
+    transition: transform 2s ease-in-out; /*transition for when the user enlarges the image */
+    margin-bottom: 10px;
+    position: relative;
+    object-fit: cover;
+    }
+  
+    /* enlarge the image when user clicks on it*/
+  img:active {
+    transform: scale(1.8);
+  }
+
+  /*skip to main link*/
+  a[href="#main"] {
+    font-weight: 700;
+    position: absolute;
+    top: 5px;
+    left: 0;
+    background: #004ea3;
+    color: #ffffff;
+    margin-left: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 4px;
+  }
+
+  /* athlete SR table and results table*/
+  #athlete-sr-table table, #athlete-result-table table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    overflow-x: auto;
+    display: block;
+    table-layout: auto;
+    border-radius: 8px;
+  }
+
+  #athlete-sr-table table th, #athlete-result-table table th, #athlete-sr-table table td, #athlete-result-table table td {
+    border: 1px solid #6d6d6d;
+    padding: 15px;
+    text-align: center;
+    word-wrap: break-word;
+  }
+  
+  /* color every second row */
+  #athlete-result-table table tbody tr:nth-child(even), #athlete-sr-table table tbody tr:nth-child(even) {
+    background-color: #ffffff;
+  }
+  
+  #athlete-result-table table tbody tr:nth-child(odd),#athlete-sr-table table tbody tr:nth-child(odd) {
+    background-color: #eef4fc;
+  }
+
+
+/* animation for best record */
+@keyframes pulseHeart {
+0%, 100% {
+    transform: scale(1);
+}
+50% {
+    transform: scale(1.2);
+}
+}
+
+#athlete-sr-table table td.best-record {
+color: #8B0000;
+font-weight: bold;
+animation: pulseHeart 1.5s ease-in-out infinite;
+}
+
+#athlete-sr-table table td {
+  animation: enlargeNumbers 3s ease-in-out 3;
+}
+
+/* adjustments for prefers-reduced-motion users */
+@media (prefers-reduced-motion: reduce) {
+  img {
+      transition:none
+  }
+
+  #athlete-sr-table table td.best-record {
+      animation: none; 
+  }
+}
+
+/* adjustments for color scheme preference */
+@media (prefers-color-scheme: dark) {
+  body {
+      background-color: #121212; 
+      color: #ffffff; 
+  }
+
+  h1{
+    color: #f0f0f0;
+    background-color: #333;
+  }
+
+  tbody tr td a {
+    color: rgb(148, 205, 255);
+  }
+
+  nav ul {
+    background-color: #333;
+}
+
+nav ul li a {
+  color: rgb(148, 205, 255);
+}
+
+  a[href="#main"] {
+    background-color: #333;
+    color: rgb(148, 205, 255);
+  }
+
+  header {
+    background-color: #333;
+  }
+
+  h2{
+    color: #ffffff;
+  }
+
+  img{
+    border-color: #ffffff;
+  }
+
+  #athlete-sr-table table,
+  #athlete-result-table table {
+    background-color: #121212; 
+    color: #e0e0e0;
+  }
+
+  #athlete-sr-table table th,
+  #athlete-result-table table th {
+    background-color: #000000;
+  }
+
+  #athlete-sr-table table tbody tr:nth-child(even),
+  #athlete-result-table table tbody tr:nth-child(even) {
+    background-color: #1e1e1e;
+  }
+
+  #athlete-sr-table table tbody tr:nth-child(odd),
+  #athlete-result-table table tbody tr:nth-child(odd) {
+    background-color: #2a2a2a; 
+  }
+
+  footer a {
+    color: rgb(148, 205, 255);
+  }
+
+  #athlete-sr-table table td.best-record {
+    color: #bbff00; /* adjusted for better color contrast */
+}}
+
+
+
